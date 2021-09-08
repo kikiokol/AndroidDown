@@ -9,11 +9,6 @@ from pyngrok import ngrok
 from termcolor import colored
 from threading import Thread
 
-OS = platform.system()
-
-if("open_metasploit_on_start" in open("config.conf").read()):   
-    os.system("msfconsole -x 'exit'")
-
 cmdb = {
     "start" : "commands.run()",
     "list-apps" : "commands.listApps()",
@@ -52,10 +47,7 @@ class commands():
         print()
 
     def clear():
-        if("Linux" in OS or "Unix" in OS):
-            os.system("clear")
-        else:
-            os.system("cls")
+        os.system("clear")
 
     def cli_command(command: str):
         output = subprocess.check_output(command, shell=True).decode()
