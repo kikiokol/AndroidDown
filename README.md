@@ -4,6 +4,7 @@ Exploit android devices via the Android Debugging Bridge.
 # Installation
 
 Prerequisites: \
+Metasploit \
 ngrok (Optional)
 
 git clone https://github.com/kikiokol/AndroidDown.git \
