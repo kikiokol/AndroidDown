@@ -1,5 +1,5 @@
 # AndroidDown
-Exploit android devices via the Android Debugging Bridge.
+Exploit android devices with open Android Debugging Bridge(ADB) ports.
 
 # Installation
 
