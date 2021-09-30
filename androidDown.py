@@ -77,7 +77,7 @@ class commands():
     def rdp_start():
         subprocess.Popen("/bin/scrcpy", shell=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE)
 
-    def connect(ip: str):
+    def connect(ip: str, port=5555):
         output = commands.cli_command("adb connect " + ip)
         if("connected" in output):
             return 0
@@ -154,8 +154,12 @@ print(colored("Use skip if a device is already connected.", "blue"))
 #Connect to target
 
 while True:
-    connected = input("IP >> ")
-    if(len(connected) > 0):
+    raw = input("IP >> ")
+    if(len(raw) > 0):
+        if(":" in raw):
+            connected, port = (raw.split(":")[0], int(raw.split(":")[1]))
+        else:
+            connected, port = (raw, 5555)
         if(connected == "skip"):
             connected = "Unknown"
             break
